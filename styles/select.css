@@ -1,0 +1,12 @@
+.dropdown {
+  margin: 0px auto 10px auto;
+  
+}
+
+.filters__crime {
+  margin: 0 auto;
+}
+
+.conviction {
+  text-transform: capitalize;
+}
