@@ -1,20 +1,46 @@
 import { CriminalComponent } from "./Criminal.js";
 import { useCriminals } from "./CriminalDataProvider.js";
 
+const eventHub = document.querySelector("#mainContainer")
 const criminalHTML = document.querySelector(".criminalsContainer")
 
 const CriminalListComponent = () => {
-  console.log("*****I AM THE CRIMINAL LIST COMPONENT*****")
-  const criminalArray = useCriminals()
-  criminalHTML.innerHTML += `
-    ${
-      criminalArray.map(
+  // Load the application state to be used by this component
+  const appStateCriminals = useCriminals()
+
+  // What should happen when detective selects a crime?
+  eventHub.addEventListener("crimeSelected", event => {
+    // You remembered to add the id of the crime to the event detail, right?
+    const crimeId = event.detail.crime
+    /*
+        Filter the criminals application state down to the people that committed the crime
+    */
+    const matchingCriminals = appStateCriminals.filter(
+      (crime) => {
+      if (crime.conviction === crimeId) {
+        return appStateCriminals
+      }
+    })
+    render(matchingCriminals)
+  })
+      /*
+          Then invoke render() and pass the filtered collection as
+          an argument
+      */
+    
+
+  const render = crimeCollection => {
+    criminalHTML.innerHTML = `
+      ${
+      crimeCollection.map(
         (criminal) => {
           return CriminalComponent(criminal)
         }
       ).join("")
-    }
-  `
+      }
+          `
+  }
+  render(appStateCriminals)
 }
 
 export default CriminalListComponent

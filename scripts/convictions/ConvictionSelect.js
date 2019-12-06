@@ -1,28 +1,40 @@
-/*
- *   ConvictionSelect component that renders a select HTML element
- *   which lists all convictions in the Glassdale PD API
- */
 import { useConvictions } from "./ConvictionProvider.js"
-
-// Get a reference to the DOM element where the <select> will be rendered
+/*
+    Which element in your HTML contains all components?
+    That's your Event Hub. Get a reference to it here.
+*/
+const eventHub = document.querySelector("#mainContainer")
 const contentTarget = document.querySelector(".filters__crime")
 
 const ConvictionSelect = () => {
-  console.log("*****I AM THE COVICTION SELECT COMPONENT*****")
-    // Get all convictions from application state
     const convictions = useConvictions()
 
+    /*
+        On the Event Hub, listen for a "change" event. Remember to write
+        an `if` condition to make sure that it was the `#crimeSelect`
+        element that changed.
+
+        When that event happens, dispatch a custom message to your Event
+        Hub so that the criminal list can listen for it and change what
+        it renders.
+    */
+    eventHub.addEventListener("change", changeEvent => {
+      if (changeEvent.target.id === "crimeSelect") {
+        const message = new CustomEvent("crimeSelected", {
+          detail: {
+              crime: changeEvent.target.value
+          }
+        })
+        eventHub.dispatchEvent(message)
+      }
+    })
+
     const render = convictionsCollection => {
-        /*
-            Use interpolation here to invoke the map() method on
-            the convictionsCollection to generate the option elements.
-            Look back at the example provided above.
-        */
         contentTarget.innerHTML = `
-            <select class="dropdown" id="crimeSelect">
+            <select class="dropdown conviction" id="crimeSelect">
                 <option value="0">Please select a crime...</option>
                 ${
-                  convictions.sort().map(
+                  convictionsCollection.sort().map(
                     conviction => `<option class="conviction">${conviction}</option>`
                   )
                 }
