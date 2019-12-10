@@ -1,0 +1,13 @@
+.suspectNoteForm {
+  margin: 0px auto 10px auto;
+  text-align: center;
+}
+
+.noteContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.noteCard {
+  margin: 10px;
+}
