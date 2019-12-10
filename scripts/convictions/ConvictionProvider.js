@@ -1,6 +1,6 @@
 let convictions = []
 
-export const useConvictions = () => convictions
+export const useConvictions = () => convictions.sort().slice()
 
 export const getConvictions = () => {
   console.log("*****I AM GOING TO FETCH THE CONVICTIONS DATA*****")

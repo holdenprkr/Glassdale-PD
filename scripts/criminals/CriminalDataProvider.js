@@ -1,6 +1,6 @@
 let criminals = []
 
-export const useCriminals = () => criminals
+export const useCriminals = () => criminals.slice()
 
 export const getCriminals = () => {
   console.log("*****I FOR SURE HAVE THAT CRIMINALS DATA*****")

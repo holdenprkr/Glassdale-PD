@@ -1,7 +1,7 @@
 let officers = []
 
 const useOfficers = () => {
-    return officers
+    return officers.slice()
 }
 
 const getOfficers = () => {
