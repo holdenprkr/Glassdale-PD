@@ -17,17 +17,27 @@ const CriminalListComponent = () => {
     */
     const matchingCriminals = appStateCriminals.filter(
       (crime) => {
-      if (crime.conviction === crimeId) {
-        return appStateCriminals
-      }
-    })
+        if (crime.conviction === crimeId) {
+          return appStateCriminals
+        }
+      })
     render(matchingCriminals)
   })
-      /*
-          Then invoke render() and pass the filtered collection as
-          an argument
-      */
-    
+  /*
+      Then invoke render() and pass the filtered collection as
+      an argument
+  */
+  eventHub.addEventListener("click", e => {
+    if (e.target.id.startsWith("button--")) {
+      const dialogSiblingSelector = `#${e.target.id}+dialog`
+      const theDialog = document.querySelector(dialogSiblingSelector)
+      theDialog.showModal()
+    } else if (e.target.classList.contains("button--close")) {
+      const dialogElement = e.target.parentNode
+      dialogElement.close()
+    }
+  })
+
 
   const render = crimeCollection => {
     criminalHTML.innerHTML = `
@@ -37,8 +47,7 @@ const CriminalListComponent = () => {
           return CriminalComponent(criminal)
         }
       ).join("")
-      }
-          `
+      }`
   }
   render(appStateCriminals)
 }

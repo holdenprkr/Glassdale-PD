@@ -10,4 +10,17 @@
 
 .noteCard {
   margin: 10px;
+  flex-basis: 23%;
+}
+
+.noteHeader {
+  margin: 9px 0px;
+}
+
+.noteText {
+  margin: 9px 0px;
+}
+
+.noteDate {
+  margin: 9px 0px;
 }

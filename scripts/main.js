@@ -5,15 +5,16 @@ import ConvictionSelect from "./convictions/ConvictionSelect.js";
 import NoteFormComponent from "./notes/NoteForm.js";
 import NoteListComponent from "./notes/NoteList.js";
 import { getNotes } from "./notes/NoteDataProvider.js";
+import initializeAssButtonEvents from "./criminals/Dialogs.js";
 
 NoteFormComponent()
 
-getConvictions().then(
-  () => ConvictionSelect()
-)
+getConvictions()
+.then(() => ConvictionSelect())
 
-getCriminals().then(
-  () => CriminalListComponent()
-)
+getCriminals()
+.then(() => CriminalListComponent())
+.then(() => initializeAssButtonEvents())
 
 getNotes().then(() => NoteListComponent())
+
