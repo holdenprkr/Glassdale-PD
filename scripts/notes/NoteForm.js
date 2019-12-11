@@ -39,6 +39,8 @@ const NoteFormComponent = () => {
             <input type="text" id="note-suspect" placeholder="Suspect here...">
             <button id="saveNote">Save Note</button>
             <button id="showNotes">Show Notes</button>
+            <button id="witnessStatements">Witness Statements</button>
+            <button id="showAllCriminals">Show All Criminals</button>
             </div>
         `
     }

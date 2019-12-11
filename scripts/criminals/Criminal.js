@@ -1,3 +1,5 @@
+const eventHub = document.querySelector("#mainContainer")
+
 export const CriminalComponent = (criminal) => {
   console.log("*****I AM THE CRIMINAL ITEM COMPONENT*****")
   return `
@@ -21,3 +23,14 @@ export const CriminalComponent = (criminal) => {
   </section>
   `
 }
+
+eventHub.addEventListener("click", e => {
+  if (e.target.id.startsWith("button--")) {
+    const dialogSiblingSelector = `#${e.target.id}+dialog`
+    const theDialog = document.querySelector(dialogSiblingSelector)
+    theDialog.showModal()
+  } else if (e.target.classList.contains("button--close")) {
+    const dialogElement = e.target.parentNode
+    dialogElement.close()
+  }
+})

@@ -28,16 +28,10 @@ const CriminalListComponent = () => {
       an argument
   */
   eventHub.addEventListener("click", e => {
-    if (e.target.id.startsWith("button--")) {
-      const dialogSiblingSelector = `#${e.target.id}+dialog`
-      const theDialog = document.querySelector(dialogSiblingSelector)
-      theDialog.showModal()
-    } else if (e.target.classList.contains("button--close")) {
-      const dialogElement = e.target.parentNode
-      dialogElement.close()
+    if (e.target.id === "showAllCriminals") {
+      render(appStateCriminals)
     }
   })
-
 
   const render = crimeCollection => {
     criminalHTML.innerHTML = `
