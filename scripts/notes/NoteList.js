@@ -16,13 +16,19 @@ const NoteListComponent = () => {
     )
   })
 
+  eventHub.addEventListener("click", e => {
+    if (e.target.id === "hideNotes") {
+      noteHTML.innerHTML = ""
+    }
+  })
+
   const render = noteCollection => {
-    noteHTML.innerHTML = 
-      noteCollection.map(
+    noteHTML.innerHTML = `
+      ${noteCollection.map(
         (note) => {
           return noteComponent(note)
         }
-      ).join("")
+      ).join("")}`
   }
 }
 

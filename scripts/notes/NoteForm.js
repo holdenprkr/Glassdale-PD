@@ -38,9 +38,13 @@ const NoteFormComponent = () => {
             <label for="note-suspect">Suspect: </label>
             <input type="text" id="note-suspect" placeholder="Suspect here...">
             <button id="saveNote">Save Note</button>
+            <br>
+            <div class="extraButtons">
             <button id="showNotes">Show Notes</button>
+            <button id="hideNotes">Hide Notes</button>
             <button id="witnessStatements">Witness Statements</button>
             <button id="showAllCriminals">Show All Criminals</button>
+            </div> 
             </div>
         `
     }
