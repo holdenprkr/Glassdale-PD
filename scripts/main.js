@@ -7,7 +7,6 @@ import NoteListComponent from "./notes/NoteList.js";
 import { getNotes } from "./notes/NoteDataProvider.js";
 import WitnessListComponent from "./witnesses/witnessesList.js";
 import { getWitnesses } from "./witnesses/witnessesDataProvider.js";
-// import initializeAssButtonEvents from "./criminals/Dialogs.js";
 
 NoteFormComponent()
 
@@ -20,7 +19,6 @@ getConvictions()
 getCriminals()
 .then(() => CriminalListComponent())
 
-// .then(() => initializeAssButtonEvents())
-
-getNotes().then(() => NoteListComponent())
+getNotes()
+.then(() => NoteListComponent())
 

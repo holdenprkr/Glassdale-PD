@@ -4,5 +4,6 @@ export const noteComponent = (note) => {
   <h4 class="noteHeader">${note.suspect}</h4>
   <p class="noteText">${note.text}</p>
   <p class="noteDate">${note.date}</p>
+  <button id="deleteNote--${note.id}">Delete</button>
   </div>`
 }

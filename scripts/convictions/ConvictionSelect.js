@@ -32,7 +32,7 @@ const ConvictionSelect = () => {
     const render = convictionsCollection => {
         contentTarget.innerHTML = `
             <select class="dropdown conviction" id="crimeSelect">
-                <option value="0">Please select a crime...</option>
+                <option selected disabled hidden value="0">Please select a crime...</option>
                 ${
                   convictionsCollection.sort().map(
                     conviction => `<option class="conviction">${conviction}</option>`

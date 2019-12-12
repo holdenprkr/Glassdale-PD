@@ -1,3 +1,5 @@
+import NoteListComponent from "./NoteList.js"
+
 export const saveNote = note => {
   return fetch('http://localhost:3000/notes', {
       method: "POST",
@@ -22,4 +24,11 @@ export const getNotes = () => {
         notes = note.slice().reverse()
       }
     )
+}
+
+export const deleteNote = noteId => {
+  return fetch(`http://localhost:3000/notes/${noteId}`, {
+      method: "DELETE"
+  })
+      .then(getNotes)
 }

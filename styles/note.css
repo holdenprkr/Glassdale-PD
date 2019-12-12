@@ -2,6 +2,10 @@
   margin: 0px auto 10px auto;
   text-align: center;
 }
+.extraButtons {
+  margin: 0px auto 10px auto;
+  text-align: center;
+}
 
 .noteContainer {
   display: flex;
