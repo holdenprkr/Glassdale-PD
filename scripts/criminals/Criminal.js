@@ -12,11 +12,11 @@ export const CriminalComponent = (criminal) => {
 
   <button id="button--${criminal.name.split(" ").join("-")}">Interview Associates</button>
     <dialog class="dialog--criminal" id="details--${criminal.name.split(" ").join("-")}">
-    <hr class="style-hr">
+    <hr class="style-two">
     ${criminal.known_associates.map(ass =>`
     <div>Name: ${ass.name}</div>
     <div>Alibi: ${ass.alibi}</div>
-    <hr class="style-hr">`
+    <hr class="style-two">`
     ).join("")}
     <button class="button--close">Close</button>
     </dialog>

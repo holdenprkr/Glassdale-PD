@@ -1,5 +1,3 @@
-import NoteListComponent from "./NoteList.js"
-
 export const saveNote = note => {
   return fetch('http://localhost:3000/notes', {
       method: "POST",

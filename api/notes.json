@@ -1,16 +1,22 @@
 {
   "notes": [
     {
-      "text": "Orville Rogahn claims Michel Stamm wasn't stealing a car because they were busy eating a table.... suspicious....",
-      "date": "12/11/2019",
-      "suspect": "Michel Stamm",
-      "id": 1
-    },
-    {
       "text": "Devyn Rodriguez says Nathanael was busy eating a table as well... really suspicious...",
       "date": "12/12/2019",
       "suspect": "Nathanael Champlin",
       "id": 2
+    },
+    {
+      "text": "Orville Rogahn says Michel Stamm was eating a table..... hmmm.. interesting",
+      "date": "12/12/2019",
+      "suspect": "Michel Stamm",
+      "id": 3
+    },
+    {
+      "text": "Donna Grimes says Michel was busy inventing coffee which is odd because I've had coffee before",
+      "date": "12/12/2019",
+      "suspect": "Michel Stamm",
+      "id": 4
     }
   ]
 }

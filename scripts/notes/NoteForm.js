@@ -24,7 +24,7 @@ const NoteFormComponent = () => {
         .then(() => {
           //check if notes are showing
           if (noteHTML.innerHTML !== "") {
-          const message = new CustomEvent("showNoteButtonClicked")
+          const message = new CustomEvent("noteCreated")
           eventHub.dispatchEvent(message)
         }
       })

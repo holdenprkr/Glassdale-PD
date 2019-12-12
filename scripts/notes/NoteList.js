@@ -6,12 +6,19 @@ const noteHTML = document.querySelector(".noteContainer")
 
 const NoteListComponent = () => {
 
-  eventHub.addEventListener("showNoteButtonClicked", event => {
+  const rerenderNotes = () => {
     getNotes().then(
       () => {
         render(useNotes())
       }
     )
+  }
+  eventHub.addEventListener("noteCreated", event => {
+    rerenderNotes()
+  })
+  
+  eventHub.addEventListener("showNoteButtonClicked", event => {
+    rerenderNotes()
   })
 
   eventHub.addEventListener("click", e => {

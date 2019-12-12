@@ -10,15 +10,25 @@
 .noteContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .noteCard {
   margin: 10px;
-  flex-basis: 23%;
+  flex-basis: 20%;
+  border: 1px solid black;
+  padding: 0px 5px 10px 10px;
+  border-radius: 7px;
+  box-shadow: 5px 8px 10px #000000
 }
 
 .noteHeader {
-  margin: 9px 0px;
+  font-weight: bold;
+  margin: 0px -5px -5px -10px;
+  text-align: center;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  padding: 4px 0px;
 }
 
 .noteText {
