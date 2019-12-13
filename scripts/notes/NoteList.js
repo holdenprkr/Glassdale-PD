@@ -1,8 +1,8 @@
 import { useNotes, getNotes, deleteNote } from "./NoteDataProvider.js";
 import { noteComponent } from "./Note.js";
-
 const eventHub = document.querySelector("#mainContainer")
 const noteHTML = document.querySelector(".noteContainer")
+const editNoteHTML = document.querySelector(".editNoteContainer")
 
 const NoteListComponent = () => {
 
@@ -16,7 +16,7 @@ const NoteListComponent = () => {
   eventHub.addEventListener("noteCreated", event => {
     rerenderNotes()
   })
-  
+
   eventHub.addEventListener("showNoteButtonClicked", event => {
     rerenderNotes()
   })
@@ -41,7 +41,30 @@ const NoteListComponent = () => {
     }
   })
 
-   const render = noteCollection => {
+  eventHub.addEventListener("click", e => {
+    if (e.target.id.startsWith("editNote--")) {
+      const [prefix, id] = e.target.id.split("--")
+      const notes = useNotes()
+      let currentNote = {}
+      for (let note of notes) {
+        if (note.id === parseInt(id, 10)) {
+          //  currenNote = note
+          const id = note.id
+          const text = note.text
+          const suspect = note.suspect
+
+          const noteEditId = document.getElementById("note-id")
+          noteEditId.value = id
+          const noteEditText = document.getElementById("note-text")
+          noteEditText.value = text
+          const noteEditSuspect = document.getElementById("note-suspect")
+          noteEditSuspect.value = suspect
+        }
+      }     
+    }
+  })
+
+  const render = noteCollection => {
     noteHTML.innerHTML = `
       ${noteCollection.map(
       (note) => {
