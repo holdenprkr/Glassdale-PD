@@ -9,32 +9,38 @@ const CriminalListComponent = () => {
   const appStateCriminals = useCriminals()
 
   // What should happen when detective selects a crime?
-  eventHub.addEventListener("crimeSelected", event => {
+  eventHub.addEventListener("filterClicked", event => {
     // You remembered to add the id of the crime to the event detail, right?
     const crimeId = event.detail.crime
+    const officerName = event.detail.officer
     /*
         Filter the criminals application state down to the people that committed the crime
     */
     const matchingCriminals = appStateCriminals.filter(
-      (crime) => {
-        if (crime.conviction === crimeId) {
-          return appStateCriminals
+      (criminal) => {
+        if (criminal.conviction === crimeId) {
+          return criminal
+        }
+      })
+      .filter(criminal => {
+        if (criminal.arrestingOfficer === officerName) {
+          return criminal
         }
       })
     render(matchingCriminals)
   })
 
-  eventHub.addEventListener("officerSelected", event => {
-    const officerName = event.detail.officer
+  // eventHub.addEventListener("officerSelected", event => {
+  //   const officerName = event.detail.officer
 
-    const OfficersCriminals = appStateCriminals.filter(
-      (convict) => {
-        if (convict.arrestingOfficer.toLowerCase() === officerName.toLowerCase()) {
-          return appStateCriminals
-        }
-      })
-    render(OfficersCriminals)
-  })
+  //   const OfficersCriminals = appStateCriminals.filter(
+  //     (convict) => {
+  //       if (convict.arrestingOfficer.toLowerCase() === officerName.toLowerCase()) {
+  //         return appStateCriminals
+  //       }
+  //     })
+  //   render(OfficersCriminals)
+  // })
   /*
       Then invoke render() and pass the filtered collection as
       an argument

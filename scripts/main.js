@@ -9,6 +9,7 @@ import WitnessListComponent from "./witnesses/witnessesList.js";
 import { getWitnesses } from "./witnesses/witnessesDataProvider.js";
 import { getOfficers } from "./officers/OfficerProvider.js";
 import OfficerSelect from "./officers/OfficerSelect.js";
+import { FilterButton } from "./filter/filter.js";
 
 NoteFormComponent()
 
@@ -27,3 +28,5 @@ getNotes()
 
 getOfficers()
 .then(() => OfficerSelect())
+
+FilterButton()
