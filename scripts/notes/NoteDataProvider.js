@@ -39,4 +39,5 @@ export const editNote = (note) => {
       },
       body: JSON.stringify(note)
   })
+  .then(getNotes)
 }

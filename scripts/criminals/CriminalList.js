@@ -23,6 +23,18 @@ const CriminalListComponent = () => {
       })
     render(matchingCriminals)
   })
+
+  eventHub.addEventListener("officerSelected", event => {
+    const officerName = event.detail.officer
+
+    const OfficersCriminals = appStateCriminals.filter(
+      (convict) => {
+        if (convict.arrestingOfficer.toLowerCase() === officerName.toLowerCase()) {
+          return appStateCriminals
+        }
+      })
+    render(OfficersCriminals)
+  })
   /*
       Then invoke render() and pass the filtered collection as
       an argument

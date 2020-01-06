@@ -7,6 +7,8 @@ import NoteListComponent from "./notes/NoteList.js";
 import { getNotes } from "./notes/NoteDataProvider.js";
 import WitnessListComponent from "./witnesses/witnessesList.js";
 import { getWitnesses } from "./witnesses/witnessesDataProvider.js";
+import { getOfficers } from "./officers/OfficerProvider.js";
+import OfficerSelect from "./officers/OfficerSelect.js";
 
 NoteFormComponent()
 
@@ -16,9 +18,12 @@ getWitnesses()
 getConvictions()
 .then(() => ConvictionSelect())
 
+
 getCriminals()
 .then(() => CriminalListComponent())
 
 getNotes()
 .then(() => NoteListComponent())
 
+getOfficers()
+.then(() => OfficerSelect())

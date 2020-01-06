@@ -1,13 +1,13 @@
-import { useConvictions } from "./ConvictionProvider.js"
+import { useOfficers } from "./OfficerProvider.js"
 /*
     Which element in your HTML contains all components?
     That's your Event Hub. Get a reference to it here.
 */
 const eventHub = document.querySelector("#mainContainer")
-const contentTarget = document.querySelector(".filters__crime")
+const contentTarget = document.querySelector(".filters__officer")
 
-const ConvictionSelect = () => {
-    const convictions = useConvictions()
+const OfficerSelect = () => {
+    const officers = useOfficers()
 
     /*
         On the Event Hub, listen for a "change" event. Remember to write
@@ -19,30 +19,30 @@ const ConvictionSelect = () => {
         it renders.
     */
     eventHub.addEventListener("change", changeEvent => {
-      if (changeEvent.target.id === "crimeSelect") {
-        const message = new CustomEvent("crimeSelected", {
+      if (changeEvent.target.id === "officerSelect") {
+        const message = new CustomEvent("officerSelected", {
           detail: {
-              crime: changeEvent.target.value
+              officer: changeEvent.target.value
           }
         })
         eventHub.dispatchEvent(message)
       }
     })
 
-    const render = convictionsCollection => {
+    const render = officerCollection => {
         contentTarget.innerHTML = `
-            <select class="dropdown" id="crimeSelect">
-                <option selected disabled hidden value="0">Filter by a crime...</option>
+            <select class="dropdown officers" id="officerSelect">
+                <option selected disabled hidden value="0">Filter by an officer...</option>
                 ${
-                  convictionsCollection.sort().map(
-                    conviction => `<option class="conviction">${conviction}</option>`
+                  officerCollection.sort().map(
+                    officer => `<option class="officer">${officer}</option>`
                   )
                 }
             </select>
         `
     }
 
-    render(convictions)
+    render(officers)
 }
 
-export default ConvictionSelect
+export default OfficerSelect
