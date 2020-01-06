@@ -29,7 +29,7 @@ const NoteFormComponent = () => {
     if (clickEvent.target.id === "saveNote") {
       clickEvent.preventDefault()
       // Does the hidden input field have a value?
-      let hiddenInputValue = document.querySelector("#note-id").value
+      const hiddenInputValue = document.querySelector("#note-id").value
       // If so, edit the note with a PUT operation
       if (hiddenInputValue !== "") {
         const editedNote = {
@@ -43,7 +43,7 @@ const NoteFormComponent = () => {
           eventHub.dispatchEvent(new CustomEvent("noteHasBeenEdited"))
         })
         document.getElementById("suspiciousNoteForm").reset()
-        hiddenInputValue = ""
+        document.querySelector("#note-id").value = ""
       } else {
         // Else, save the notes with a POST operation
 
